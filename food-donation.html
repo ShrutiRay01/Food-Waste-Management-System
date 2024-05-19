@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Management</title>
+    <style>
+        #google_translate_element img {
+            width: 60px;
+            height: auto;
+        }
+
+        .lang {
+            display: flex;
+            justify-content: end;
+            justify-items: end;
+            background-color: #3d3d3d;
+            height: 70px;
+        }
+
+        .lang p {
+            color: white;
+            margin-top: 8px;
+            margin-right: 8px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url("images/pay.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        form {
+            width: 500px;
+            margin: 30px auto;
+            height: 720px;
+            background-color: ghostwhite;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(21, 210, 21);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 45%;
+        }
+
+        button:hover {
+            background-color: #326b34;
+            transform: scale(1.05);
+        }
+
+        h4 {
+            color: brown;
+            font-weight: 500;
+        }
+
+        h1 {
+            color: brown;
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lang">
+        <p>
+            Translate this page in your preferred language:
+        </p>
+
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en'
+                }, 'google_translate_element');
+            }
+        </script>
+
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+    <form id="food-wastage" action="/submit-form" method="POST">
+        <h1>
+            <center> Food Donation </center>
+        </h1>
+        <h4>
+            <center> Make a difference in the lives of thousands </center>
+        </h4>
+
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="food">Select food type</label>
+        <select id="food" name="food" required>
+            <option value="">Select...</option>
+            <option value="milk">Milk</option>
+            <option value="fruits">Fruits</option>
+            <option value="veg">Vegetables</option>
+            <option value="rice">Rice</option>
+            <option value="wheat">Wheat</option>
+            <option value="pulses">Pulses</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="quantity">Quantity (in kg)</label>
+        <input type="number" name="quantity">
+
+        <label for="pincode">Area Pincode</label>
+        <input type="number" name="pincode" id="pincode">
+
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <label for="pickup-date">Preferred Pickup Date</label>
+        <input type="date" name="date" id="date" required>
+
+        <label for="pickup-time">Preferred Pickup Time</label>
+        <input type="time" name="time" id="time" required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        // Form submission
+        document.getElementById('food-wastage').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Validation
+            const name = document.getElementById('name').value.trim();
+            const food = document.getElementById('food').value.trim();
+            const pincode = document.getElementById('pincode').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const time = document.getElementById('time').value.trim();
+
+            if (name === '' || food === '' || state === '' || address === '' || date === '' || time === '') {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+        
+            const formData = {
+                name: name,
+                food: food,
+                quantity: document.getElementById('quantity').value.trim(),
+                pincode:pincode,
+                address: address,
+                date: date,
+                time: time
+            };
+
+            // Submit the form data (you can send it to the backend for processing)
+            console.log('Form Data:', formData);
+
+            document.getElementById('food-wastage').reset();
+        });
+    </script>
+
+</body>
+
+</html>

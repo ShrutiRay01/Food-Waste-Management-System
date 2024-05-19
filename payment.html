@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Payment Form </title>
+</head>
+<style>
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:url("images/pay.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+form{
+    background-color:ghostwhite;
+    padding:30px;
+    border-radius:50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width:430px;
+    max-width: 100%;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+      margin-bottom: 50px;
+      margin-top:50px;
+}
+form:hover{
+    transform: scale(1.05);
+}
+h1 {
+      color:brown;
+      font-size: 30px;
+      margin-top:15px;
+      text-align: center;
+    }
+    h4{
+      text-align: center;
+      color:brown;
+      font-weight:500;
+    }
+ label{
+    display:block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 17px;
+ }
+ input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 7px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background-color:rgb(21, 210, 21);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+      margin-left:37%;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+</style>
+<body>
+    <form id="payment" action="/submit-payment" method="post">
+    <h1> Food For All </h1>
+    <h4> A little contribution can also help </h4>
+    <label for="name"> Full Name </label>
+    <input type="text" id="name" name="name" required>
+    <label for="pincode"> Area Pincode </label>
+    <input type="number" id="pincode" name="pincode" required>
+    <label for="email"> Email-ID </label>
+    <input type="email" id="email" name="email" required>
+    <label for="address">Address </label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+
+
+    <label for="paymentMode">Payment Mode </label>
+    <select id="paymentMode" name="paymentMode" required>
+      <option value="" disabled selected>Select payment mode</option>
+      <option value="paytm">Paytm</option>
+    </select>
+    <button type="submit">Donate Now</button>
+
+    </form>
+</body>
+
+<script>
+  document.getElementById("payment").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var paymentMode = document.getElementById("paymentMode").value;
+      if (paymentMode === "paytm") {
+          window.location.href = "paytm_form.html";
+      } else {
+          alert("Payment mode not supported yet!");
+      }
+  });
+</script>
+
+</html>
+

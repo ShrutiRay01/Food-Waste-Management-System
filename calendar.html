@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<title>Event Calendar </title>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+
+<body>
+	<div class="lang">
+	<p>
+		Translate this page in
+		your preferred language:
+	</p>
+
+	<div id="google_translate_element"></div>
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement(
+				{pageLanguage: 'en'},
+				'google_translate_element'
+			);
+		}
+	</script>
+
+	<script type="text/javascript"
+			src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+	</script>
+    </div>
+    <header> Food For All </header>
+    <section>
+    <h2> Our Event Calendar </h2>
+    <div class="calendar">
+        <div class="calendar-header">
+          <button id="prevMonthBtn">&lt;</button>
+          <h2 id="currentMonth"></h2>
+          <button id="nextMonthBtn">&gt;</button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+    
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const calendarGrid = document.getElementById('calendarGrid');
+          const currentMonthElement = document.getElementById('currentMonth');
+          const prevMonthBtn = document.getElementById('prevMonthBtn');
+          const nextMonthBtn = document.getElementById('nextMonthBtn');
+          const eventTooltip = document.createElement('div');
+          eventTooltip.classList.add('event-tooltip');
+          document.body.appendChild(eventTooltip);
+    
+          let currentDate = new Date(2024, 3); // April 2024
+          let currentYear = currentDate.getFullYear();
+          let currentMonth = currentDate.getMonth();
+    
+          renderCalendar(currentYear, currentMonth);
+    
+          prevMonthBtn.addEventListener('click', function() {
+            currentMonth--;
+            if (currentMonth < 0) {
+              currentYear--;
+              currentMonth = 11; // December
+            }
+            renderCalendar(currentYear, currentMonth);
+          });
+    
+          nextMonthBtn.addEventListener('click', function() {
+            currentMonth++;
+            if (currentMonth > 11) {
+              currentYear++;
+              currentMonth = 0; // January
+            }
+            renderCalendar(currentYear, currentMonth);
+          });
+    
+          function renderCalendar(year, month) {
+            currentMonthElement.textContent = `${getMonthName(month)} ${year}`;
+            calendarGrid.innerHTML = '';
+    
+            const firstDayOfMonth = new Date(year, month, 1);
+            const lastDayOfMonth = new Date(year, month + 1, 0);
+            const daysInMonth = lastDayOfMonth.getDate();
+    
+            // Fill in empty cells for the days before the first day of the month
+            for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
+              const emptyCell = document.createElement('div');
+              calendarGrid.appendChild(emptyCell);
+            }
+    
+            // Fill in cells for each day of the month
+            for (let i = 1; i <= daysInMonth; i++) {
+              const dayElement = document.createElement('div');
+              dayElement.textContent = i;
+              dayElement.classList.add('calendar-day');
+              if (month === 3 && [10, 20].includes(i)) {
+                dayElement.classList.add('event'); // Add event class to the specified dates for April
+              }
+              if (month === 4 && [1, 19].includes(i)) {
+                dayElement.classList.add('event'); // Add event class to the specified dates for May
+              }
+              if (month === 5 && [5, 16, 25].includes(i)) {
+                dayElement.classList.add('event'); // Add event class to the specified dates for June
+              }
+              if (month === 6 && i === 24) {
+                dayElement.classList.add('event'); // Add event class to the specified date for July
+              }
+              if (month === 7 && [7, 13, 24].includes(i)) {
+                dayElement.classList.add('event'); // Add event class to the specified dates for August
+              }
+              dayElement.addEventListener('click', function() {
+                showEventTooltip(i, month);
+              });
+              calendarGrid.appendChild(dayElement);
+            }
+          }
+    
+          function getMonthName(monthIndex) {
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            return months[monthIndex];
+          }
+    
+          function showEventTooltip(day, month) {
+            const eventDetails = getEventDetails(day, month);
+            if (eventDetails) {
+              eventTooltip.innerHTML = `<strong>${eventDetails.title}</strong><br>${eventDetails.description}`;
+              eventTooltip.style.display = 'block';
+              const dayElements = document.querySelectorAll('.calendar-day');
+              dayElements[day - 1].appendChild(eventTooltip);
+            }
+          }
+    
+          function getEventDetails(day, month) {
+            const events = {
+              10: { title: 'Food Drive Event', description: 'Join us for a community food drive to reduce food waste and support those in need. <br> Address : Ashok Vihar, Delhi' },
+              20: { title: 'Sustainable Cooking Workshop', description: 'Learn practical tips and recipes for reducing food waste and cooking sustainably.<br> Address : Rohini Sec-12, Delhi' },
+              1: { title: 'Food Donation Day', description: 'Donate excess food items to local shelters and food banks to help combat food insecurity.<br> Address : Rohini Sec-8, Delhi ' },
+              19: { title: 'Food Waste Awareness Seminar', description: 'Attend a seminar on raising awareness about food waste issues and promoting sustainable practices.<br> Address : Meera Bagh, Delhi' },
+              5: { title: 'Cooking Demo: Reduce & Recycle', description: 'Discover innovative ways to reduce food waste and recycle kitchen scraps into delicious meals.<br> Address : Vikas Puri, Delhi ' },
+              16: { title: 'Community Garden Cleanup', description: 'Join us for a volunteer cleanup event at the community garden to reduce waste and promote sustainable gardening practices.<br> Address : Dwarka, Delhi' },
+              25: { title: 'Food Preservation Workshop', description: 'Learn techniques for preserving food to extend its shelf life and reduce waste.<br> Address : Janakpuri , Delhi' },
+              24: { title: 'Zero Waste Picnic', description: 'Enjoy a fun-filled picnic while learning how to minimize waste and practice eco-friendly habits.<br> Address : Hauz Khas, Delhi' },
+              7: { title: 'Cooking Class: Creative Leftovers', description: 'Discover creative recipes and meal ideas for using up leftovers and reducing food waste in the kitchen.<br> Address : Saket, Delhi' },
+              13: { title: 'Food Swap Meetup', description: 'Exchange surplus produce and homemade goods with other community members to prevent food waste and promote sustainability.<br> Address : Inderlok, Delhi' },
+              24: { title: 'Food Donation Drop-off', description: 'Drop off your surplus food items at our donation center to help those in need and reduce food waste.<br> Address : Pitumpura, Delhi' }
+            };
+            return events[day];
+          }
+        });
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+</body>
+
+</html>

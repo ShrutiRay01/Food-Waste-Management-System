@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<title>
+		Login
+	</title>
+    <style>
+    #google_translate_element img {
+    width: 60px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+.lang{
+    display:flex;
+    justify-content: end;
+    justify-items: end;
+    background-color: #3d3d3d;
+    height:70px;
+    }
+    .lang p{
+    color:white;
+    margin-top:8px;
+    margin-right:8px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+}
+    body{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background:url("pay.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-sizing: border-box;
+        padding:0;
+        margin:0;
+    }
+    form{
+        width:500px;
+        margin: 30px auto;
+        height:480px;
+        background-color: ghostwhite;
+        justify-content: center;
+        align-items: center;
+        border-radius:30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding:20px;
+    }
+    form:hover{
+        transform: scale(1.05);
+    }
+    label {
+            display: block;
+            margin-bottom: 4px;
+        }
+    input, select,textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color:rgb(21, 210, 21);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 45%;
+            
+        }
+        button:hover{
+            background-color:#326b34;
+            transform:scale(1.05);
+        }
+       h4{
+        color:brown;
+        font-weight:500;
+       }
+       h1{
+        color:brown;
+        font-weight: bold;
+        margin-top:5px;
+        margin-bottom: 5px;
+       }
+      body p{
+        margin-top:5px;
+        text-align: center;
+      }
+    </style>
+</head>
+
+<body>
+	
+<div class="lang">
+	<p>
+		Translate this page in
+		your preferred language:
+	</p>
+
+	<div id="google_translate_element"></div>
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement(
+				{pageLanguage: 'en'},
+				'google_translate_element'
+			);
+		}
+	</script>
+
+	<script type="text/javascript"
+			src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+	</script>
+</div>
+<form id="register">
+    <h1><center> Log in  </center> </h1>
+    <h4><center> Welcome back! </center> </h4>
+
+    <label for="name"> First Name </label>
+    <input type="text" name="fname" id="fname" required>
+
+    <label for="name"> Last Name </label>
+    <input type="text" name="lname" id="lname" required>
+
+    <label for="email"> Registered Email ID </label>
+    <input type="email" name="email" required>
+
+    <label for="password"> Password </label>
+    <input type="password" name="pwd" required>
+
+
+    <p> A new member? <a href="reg.html"> Sign Up </a></p>
+
+    <button type="submit"> Sign In  </button>
+
+    </form>
+</body>
+
+</html>

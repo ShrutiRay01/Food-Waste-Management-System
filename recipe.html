@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title> Recipe Generator </title>
+    <link rel="stylesheet" href="recipe.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="lang">
+
+        <p>
+            Translate this page in your preferred language:
+        </p>
+
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    { pageLanguage: 'en' },
+                    'google_translate_element'
+                );
+            }
+        </script>
+
+        <script type="text/javascript"
+            src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
+    </div>
+    <header>
+        <h1> Got Leftover Food In Your Kitchen? </h1>
+    </header>
+    <section>
+        <h2> Get Your Favourite Recipes Here! </h2>
+        <p>Do you also have leftover rice in the refrigerator, overripped bananas or stale bread and thinking of throwing
+            away because you don't know what to do? No need to throw them because you can get great, easy to make and
+            delicious recipes here. Introducing our innovative Recipe Generator - your ultimate culinary companion for
+            endless inspiration in the kitchen! Say goodbye to recipe ruts and flavor fatigue as you embark on a journey
+            of creativity and deliciousness.</p> <br>
+        <p1> Our aim is to reduce food wastage at homes so we present our recipe generator. Below are the food items
+            that are most commonly wasted at your homes or hotels. Get simple and quick recipes and become a food
+            saviour.</p1> <br>
+        <form id="recipeform">
+            <label><h3> Enter the food items : </h3> </label>
+            <br>
+            <label><input type="text" name="options" placeholder="Enter food item" required></label> <br>
+            <label><input type="text" name="options" placeholder="Enter food item"></label> <br>
+            <label><input type="text" name="options" placeholder="Enter food item"></label> <br>
+            
+
+            <br> <br>
+            <button type="button" onclick="generateRecipe()">Generate Recipe</button>
+        </form><br>
+        <div id="recipe"></div>
+    </section>
+
+
+</body>
+<script>
+    function generateRecipe() {
+        const options = document.querySelectorAll('input[name="options"]');
+        let ingredients = [];
+
+        options.forEach(option => {
+            if (option.value.trim() !== '') {
+                ingredients.push(option.value.trim());
+            }
+        });
+
+        let recipe = "";
+
+        if (ingredients.length === 0) {
+            recipe = "Please enter at least one food item.";
+        } else {
+            ingredients.forEach(ingredient => {
+                switch (ingredient) {
+                    case "bread":
+                        recipe += "<h2> Stale Bread Pudding Recipe:</h2> <br>";
+                        recipe += "- 2 cups stale bread, cubed<br>";
+                        recipe += "- 2 cups milk<br>";
+                        recipe += "- 3 eggs<br>";
+                        recipe += "- 1/2 cup sugar<br>";
+                        recipe += "- 1 tbsp vanilla extract<br><br>";
+                        recipe += "<h3>The steps are as follows:</h3> <br>";
+                        recipe += "1) Preheat oven to 350°F (175°C). Grease a baking dish.<br>";
+                        recipe += "2) Place the cubed bread in baking dish.<br>";
+                        recipe += "3) In a saucepan, heat the milk over medium heat until warm but not boiling<br>";
+                        recipe += "4) Stir in the sugar and vanilla extract until dissolved.<br>";
+                        recipe += "5) Pour the milk mixture over the bread, ensuring all the bread is coated.<br>";
+                        recipe += "6) Press down lightly on the bread to help it absorb the milk mixture.<br>";
+                        recipe += "7) Bake in the preheated oven for 30-35 minutes, or until the pudding is set and golden brown on top..<br> Happy eating! <br><br>";
+
+                        break;
+                    case "overripe fruits":
+                        recipe += "<h2>Fruit Muffins Recipe:</h2><br>";
+                        recipe += "- 2 overripe fruits, mashed<br>";
+                        recipe += "- 1/3 cup melted butter<br>";
+                        recipe += "- 1 tsp baking soda<br>";
+                        recipe += "- Pinch of salt<br>";
+                        recipe += "- 3/4 cup sugar<br>";
+                        recipe += "- 1 egg, beaten<br>";
+                        recipe += "- Milk <br>";
+                        recipe += "- 1 tbsp vanilla extract<br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Preheat oven to 350°F (175°C). Line muffin tin.<br>";
+                        recipe += "2) Mash fruits, mix with melted butter.<br>";
+                        recipe += "3) Add sugar, leftover milk, vanilla, mix.<br>";
+                        recipe += "4) Stir in baking soda, salt.<br>";
+                        recipe += "5) Mix in flour until just combined.<br>";
+                        recipe += "6) Bake 20-25 min until toothpick comes out clean.<br>";
+                        recipe += "7) Cool before serving.<br> Happy eating! <br><br>";
+                        break;
+                    case "rice":
+                        recipe += "<h2>Fried Rice Recipe:</h2><br>";
+                        recipe += "- 2 cups cooked rice, chilled<br>";
+                        recipe += "- 1 cup mixed vegetables (e.g., peas, carrots, bell peppers)<br>";
+                        recipe += "- 2 eggs, beaten<br>";
+                        recipe += "- 2 tbsp soy sauce<br>";
+                        recipe += "- 2 tbsp vegetable oil<br>";
+                        recipe += "- Salt and pepper to taste<br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Heat the cooking oil in a large skillet or wok over medium-high heat.<br>";
+                        recipe += "2) Add the mixed vegetables to the skillet and stir-fry for 2-3 minutes until they start to soften.<br>";
+                        recipe += "3) Add the cooked rice to the skillet, breaking up any clumps with a spatula.<br>";
+                        recipe += "4) Season the rice and vegetables with salt and pepper to taste. Stir well to combine.<br>";
+                        recipe += "5) Continue to stir-fry for another 3-5 minutes until the rice is heated through and lightly crispy.<br>";
+                        recipe += "6) Taste and adjust seasoning if needed.<br>";
+                        recipe += "7) Serve hot as a side dish or main course. <br> Happy eating! <br><br>";
+                        break;
+                    case "vegetable scraps":
+                        recipe += "<h2>Vegetable Soup Recipe:</h2><br>";
+                        recipe += "- Assorted vegetable scraps (e.g., onion skins, carrot tops, celery leaves)<br>";
+                        recipe += "- 6 cups water or vegetable broth<br>";
+                        recipe += "- Salt and pepper to taste<br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Collect vegetable scraps such as carrot peels, onion ends, and celery tops.<br>";
+                        recipe += "2) Place the vegetable scraps in a pot and cover them with water.<br>";
+                        recipe += "3) Season with salt and pepper to taste.<br>";
+                        recipe += "4) Bring the pot to a boil over medium-high heat.<br>";
+                        recipe += "5) Once boiling, reduce the heat to low and let the soup simmer for about 20-30 minutes to allow the flavors to meld.<br>";
+                        recipe += "6) Once done, strain out the vegetable scraps and discard them.<br>";
+                        recipe += "7) Serve the hot vegetable broth as is or use it as a base for other soups. <br> Happy eating! <br><br>";
+                        break;
+                    case "flour":
+                        recipe += "<h2>Simple Homemade Pizza Dough Recipe:</h2><br>";
+                        recipe += "- 2 cups all-purpose flour <br>";
+                        recipe += "- 1 tbsp instant yeast <br>";
+                        recipe += "- 1 tbsp olive oil <br><br>";
+                        recipe += "- some vegetables <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Mix flour, yeast, and salt. Add olive oil and warm water.<br>";
+                        recipe += "2) Knead dough until smooth.<br>";
+                        recipe += "3) Let dough rise for 1 hour.<br>";
+                        recipe += "4) Preheat oven to 475°F (245°C).<br>";
+                        recipe += "5) Roll out dough, add toppings.<br>";
+                        recipe += "6) Bake for 10-12 minutes.<br>";
+                        recipe += "7) Slice and serve hot. <br> Happy eating! <br><br>";
+                        break;
+                    case "yogurt":
+                        recipe += "<h2>Simple Yogurt Parfait Recipe:</h2><br>";
+                        recipe += "- 1 cup plain yogurt <br>";
+                        recipe += "- 1/2 cup granola <br>";
+                        recipe += "- 1/2 cup mixed berries (strawberries, blueberries, raspberries) <br><br>";
+                        recipe += "- 1/2 cup crushed nuts (optional) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) In a serving glass or bowl, layer half of the yogurt at the bottom.<br>";
+                        recipe += "2) Add half of the granola on top of the yogurt layer.<br>";
+                        recipe += "3) Add half of the mixed berries on top of the granola.<br>";
+                        recipe += "4) Repeat the layers with the remaining yogurt, granola, and mixed berries.<br>";
+                        recipe += "5) Drizzle honey or maple syrup over the top if desired.<br>";
+                        recipe += "6) Serve immediately and enjoy your simple and delicious yogurt parfait!<br>";
+                        recipe += "7) Slice and serve hot.<br> Happy eating! <br><br>";
+                        break;
+
+                        case "cheese":
+                        recipe += "<h2>Cheese Quesadillas Recipe:</h2><br>";
+                        recipe += "- Flour tortillas <br>";
+                        recipe += "- Shredded cheese (e.g., cheddar, mozzarella) <br>";
+                        recipe += "- chopped vegetables/chicken <br><br>";
+                        recipe += "- Olive oil or butter (for cooking) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Sprinkle shredded cheese evenly over half of the tortilla.<br>";
+                        recipe += "2) Add any optional ingredients on top of the cheese.<br>";
+                        recipe += "3) Fold the tortilla in half to cover the cheese and ingredients.<br>";
+                        recipe += "4) Heat a skillet over medium heat and add a small amount of olive oil or butter and place the quesadilla. br>";
+                        recipe += "5) Flip the quesadilla and cook until golden brown and cheese is melted.<br>";
+                        recipe += "6) Remove from the skillet and cut into wedges.<br>";
+                        recipe += "7) Serve hot with cream.<br> Happy eating! <br><br>";
+                        break;
+
+                        case "chappati":
+                        recipe += "<h2>Cheese Quesadillas Recipe:</h2><br>";
+                        recipe += "- Chappatis <br>";
+                        recipe += "- Shredded cheese (e.g., cheddar, mozzarella) <br>";
+                        recipe += "- chopped vegetables/chicken <br><br>";
+                        recipe += "- Olive oil or butter (for cooking) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Sprinkle shredded cheese evenly over half of the tortilla.<br>";
+                        recipe += "2) Add any optional ingredients on top of the cheese.<br>";
+                        recipe += "3) Fold the tortilla in half to cover the cheese and ingredients.<br>";
+                        recipe += "4) Heat a skillet over medium heat and add a small amount of olive oil or butter and place the quesadilla. br>";
+                        recipe += "5) Flip the quesadilla and cook until golden brown and cheese is melted.<br>";
+                        recipe += "6) Remove from the skillet and cut into wedges.<br>";
+                        recipe += "7) Serve hot with cream.<br> Happy eating! <br><br>";
+                        break;
+
+                    case "milk":
+                        recipe += "<h2>Easy Homemade Milkshake Recipe:</h2><br>";
+                        recipe += "- 2 cups cold milk <br>";
+                        recipe += "- Bananas (optional) <br>";
+                        recipe += "- 2 scoops vanilla ice cream <br>";
+                        recipe += "- 2 tablespoons chocolate syrup (optional) <br><br>";
+                        recipe += "- Crushed nuts like cashews (optional) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) In a blender, combine cold milk and vanilla ice cream.<br>";
+                        recipe += "2) Blend until smooth and creamy.<br>";
+                        recipe += "3) Add chocolate syrup if desired, and blend again briefly to incorporate.<br>";
+                        recipe += "4) Pour into glasses. <br>";
+                        recipe += "5) Serve immediately.<br> Happy eating!<br><br>";
+                        break;
+
+                    case "fruit peels":
+                        recipe += "<h2>Fruit Peel Flavoured Water Recipe:</h2><br>";
+                        recipe += "- Fruit peels (e.g orange,lemon) <br>";
+                        recipe += "- Water <br>";
+                        recipe += "- Ice cubes (optional) <br>";
+                        recipe += "- Mint leaves or cucumber slices (optional) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Wash fruit peels thoroughly.<br>";
+                        recipe += "2) Place peels in a pitcher.<br>";
+                        recipe += "3) Fill pitcher with water.<br>";
+                        recipe += "4) Add mint leaves or cucumber slices for extra flavor. <br>";
+                        recipe += "5) Serve chilled with ice.<br> Happy eating!<br><br>";
+                        break;
+
+                    case "vegetables":
+                        recipe += "<h2>Vegetable Soup Recipe:</h2><br>";
+                        recipe += "- Overripe vegetables (e.g., tomatoes, carrots, celery) <br>";
+                        recipe += "- Vegetable broth or water <br>";
+                        recipe += "- Salt and pepper <br>";
+                        recipe += "- Herbs (e.g., thyme, basil) (optional) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Chop vegetables, onion, and garlic.<br>";
+                        recipe += "2) Heat olive oil in a pot and saute onion and garlic.<br>";
+                        recipe += "3) Add chopped vegetables and cook for a few minutes.<br>";
+                        recipe += "4) Pour in vegetable broth or water to cover vegetables. <br>";
+                        recipe += "5) Season with salt, pepper, and herbs to taste. <br>";
+                        recipe += "6) Serve hot with crusty bread.<br> Happy eating!<br><br>";
+                        break;
+
+                    case "grains":
+                        recipe += "<h2> Leftover Cooked Grains Stir-fry:</h2><br>";
+                        recipe += "- Leftover cooked grains (e.g., rice, quinoa, bulgur) <br>";
+                        recipe += "- Mixed vegetables (e.g., bell peppers, broccoli, carrots) <br>";
+                        recipe += "- Ginger and garlic <br>";
+                        recipe += "- Scrambled eggs, green onions, sesame seeds (optional) <br><br>";
+                        recipe += "<h3>The steps are as follows:</h3><br>";
+                        recipe += "1) Heat sesame oil in a pan or wok.<br>";
+                        recipe += "2) Add minced garlic and ginger, sauté until fragrant.<br>";
+                        recipe += "3) Add chopped vegetables and protein, cook until tender.<br>";
+                        recipe += "4) Optionally, push grains to one side and scramble eggs in the empty space. <br>";
+                        recipe += "5) Garnish with sliced green onions and sesame seeds if desired. <br>";
+                        recipe += "6) Serve hot <br> Happy eating!<br><br>";
+                        break;
+
+                    default:
+
+                        break;
+                }
+            });
+        }
+
+        document.getElementById('recipe').innerHTML = recipe;
+    }
+</script>
+
+</html>

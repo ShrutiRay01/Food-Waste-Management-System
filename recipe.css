@@ -1,0 +1,138 @@
+*{
+    padding:0;
+    margin:0;
+}
+#google_translate_element img {
+    width: 60px; 
+    height: auto; 
+}
+html, 
+body{
+    height:100%;
+}
+.lang{
+    display:flex;
+    justify-content: end;
+    justify-items: end;
+    background-color: #3d3d3d;
+    height:70px;
+    }
+    .lang p{
+    color:white;
+    margin-top:8px;
+    margin-right:8px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+header h1{
+    color:rgb(245, 240, 240);
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+h2{
+    color:darkred;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+h3{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+    text-align: center;
+    text-decoration: underline;
+}
+section {
+    max-width: 800px;
+    margin: 2em auto;
+    text-align: center;
+    padding: 2em;
+    background-color:rgb(252, 241, 227);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+section p{
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+#recipeform{
+    margin-left:20%;
+    background-color:rgb(246, 246, 250);
+    padding:20px;
+    border-radius:50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width:430px;
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 40px;
+    margin-top:30px;
+    align-items: end;
+}
+body {
+    font-family: 'Bree Serif', serif;
+    color:#555;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+   background-image: url("images/abc.jpg");    
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;  
+}
+html{
+    scroll-behavior: smooth;
+}
+header{
+    font-family:'Baloo Bhai', cursive;
+}
+button{
+        background-color:rgb(21, 210, 21);
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 17px;
+        transition: background-color 0.3s ease;
+        margin-left:2%;
+        font-weight: bold;
+        margin-bottom: 48px;
+      }
+button:hover {
+  background-color: #218838;
+  font-weight: bolder;
+    }
+label{
+        display:block;
+        margin-bottom: 4px;
+        color: #555;
+        font-size: 18px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        margin-left:10px;
+}
+p1{
+    color:rgb(174, 49, 3);
+}
+label:hover{
+    cursor: pointer;
+}
+input[type="checkbox"] {
+   align-items: end;
+}
+ #recipe{
+    text-align: left;
+ }
+ input[type="text"]{
+    align-items:center;
+    padding:5px;
+    border-radius: 8px;
+    margin-left: 110px;
+ }

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> About us </title>
+    <style>
+    *{
+            padding:0;
+            margin:0;
+    }
+    #google_translate_element img {
+    width: 60px; 
+    height: auto; 
+}
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background:url("images/abc.jpg");
+        background-repeat: no-repeat;
+        background-size:auto;
+        background-position: center;
+    }
+    .lang{
+    display:flex;
+    justify-content: end;
+    justify-items: end;
+    background-color: #3d3d3d;
+    height:70px;
+    }
+    .lang p{
+    color:white;
+    margin-top:8px;
+    margin-right:8px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+}
+header {
+    background-color: #662121;
+    background-image: linear-gradient(316deg, #672020 0%, #ff9933 74%);
+        color: #fff;
+        text-align: center;
+        padding: 1em;
+    }
+
+    section {
+        max-width: 800px;
+        margin: 2em auto;
+        text-align: center;
+        padding: 2em;
+        background-color:rgb(252, 241, 227);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+    }
+
+    img {
+        height:500px;
+        width:500px;
+        height: auto;
+        border-radius: 20px;
+        margin-bottom: 1em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: filter 0.3s ease, background-color 0.3s ease;
+    }
+    img:hover{
+        cursor: pointer;
+        transform:scale(1.1);
+        transition:1s;
+        filter:grayscale(100%);
+        background-color: lightcoral;
+    }
+
+    h2 {
+        color:darkred;
+        border-bottom: 2px solid #333;
+        padding-bottom: 0.5em;
+        margin-bottom: 1em;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .mission {
+        background-color: #fffafa;
+        padding: 1em;
+        border-radius: 8px;
+        margin-top: 2em;
+    }
+
+    .team {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 2em;
+    }
+
+    .team-member {
+        flex: 1 1 300px;
+        background-color:#fffafa;
+        border-radius: 8px;
+        padding: 1em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-member img {
+        height:300px;
+        width:250px;
+        border-radius: 15px;
+        margin-bottom: 1em;
+    }
+
+    .quote {
+        font-style: italic;
+        color: orangered;
+    }
+
+    .projects {
+        margin-top: 2em;
+    }
+    .project h3{
+        color:orangered;
+    }
+
+    .project {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1em;
+        margin-bottom: 1em;
+        background-color: #fffafa;
+    }
+
+    .project img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        margin-bottom: 1em;
+    }
+
+</style>
+</head>
+<body>
+    <div class="lang">
+    <p> Translate this page in your preferred language :</p>
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+    </div>
+        <header>
+            <h1> Food For All </h1>
+        </header>
+    
+        <section>
+            <h2> ABOUT US </h2>
+            <p>Welcome to here where we are on a mission to eliminate hunger and food waste by connecting those with surplus food to those in need.</p>
+          <br>     
+            <p>At our organization, we believe that everyone deserves access to nutritious meals. We work tirelessly to bridge the gap between food donors and beneficiaries, ensuring that no one goes to bed hungry.</p>
+    <br> 
+            <img src="images/i1.jpeg" alt="Food Donation Image 2">
+    
+            <div class="mission">
+                <h2>OUR MISSION </h2>
+                <p>Our mission is to create a world where hunger is eradicated, and no edible food goes to waste. Through collaborative efforts, we aim to build a sustainable and compassionate community that cares for its members.</p>
+            </div>
+    
+            <div class="team">
+                <div class="team-member">
+                    <img src="images/photo (2).jpeg" alt="Team Member 1">
+                    <h3> SHRUTI RAY </h3>
+                    <p>Founder & CEO</p>
+                    <p class="quote">"Together, we can make a difference in the lives of those in need."</p>
+                </div>
+    
+                <div class="team-member">
+                    <img src="images/r.jpg" alt="Team Member 2">
+                    <h3> ROHAN MALHOTRA </h3>
+                    <p>Community Outreach Coordinator</p>
+                    <p class="quote">"Every contribution, no matter how small, has the power to change lives."</p>
+                </div>
+            </div>
+    
+            <div class="projects">
+                <h2> OUR PROJECTS </h2>
+    
+                <div class="project">
+                    <h3> <u> Project A: Community Kitchen </u> </h3>
+                    <p>
+                        The project's vision can be summarised by the phrase "Eat What is Already There".
+                        Around 1500 kilogrammes of food is donated to the Community Kitchen from producers, processors or 
+                        wholesalers at the end of each day. With these ingredients, fresh, 
+                        healthy and seasonal meals are prepared and consumed in the facility or by public canteens
+                    </p>
+                    <img src="images/donation.jpg" alt="Project A Image">
+                </div>
+    
+                <div class="project">
+                    <h3><u> Project B: School Lunch Program </u> </h3>
+                    <p>
+                    It was introduced to address the issues of malnutrition, hunger, and lack of education among 
+                    school-going children. The scheme aims to provide nutritious meals to children to 
+                    improve their nutritional status and encourage regular school attendance.
+                    </p>
+                     <img src="images/f.jpeg" alt="Project B Image"> 
+                </div>
+            </div>
+        </section>
+</body>
+</html>
