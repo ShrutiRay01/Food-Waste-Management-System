@@ -106,14 +106,9 @@ h1 {
   document.getElementById("payment").addEventListener("submit", function (event) {
       event.preventDefault();
       var paymentMode = document.getElementById("paymentMode").value;
-      if (paymentMode === "paytm") {
-          window.location.href = "paytm_form.html";
-      }
-      if (paymentMode === "gpay") {
+      if (paymentMode === "paytm" || paymentMode=="gpay") {
           window.location.href = "paytm_form.html";
       } 
-      
-      
       else {
           alert("Payment mode not supported yet!");
       }
