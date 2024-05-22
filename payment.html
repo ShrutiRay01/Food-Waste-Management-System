@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:url("pay.jpg");
+    background:url("images/pay.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -96,19 +96,25 @@ h1 {
     <select id="paymentMode" name="paymentMode" required>
       <option value="" disabled selected>Select payment mode</option>
       <option value="paytm">Paytm</option>
+      <option value="gpay">Google Pay</option>
     </select>
     <button type="submit">Donate Now</button>
 
     </form>
 </body>
-
 <script>
   document.getElementById("payment").addEventListener("submit", function (event) {
       event.preventDefault();
       var paymentMode = document.getElementById("paymentMode").value;
       if (paymentMode === "paytm") {
           window.location.href = "paytm_form.html";
-      } else {
+      }
+      if (paymentMode === "gpay") {
+          window.location.href = "paytm_form.html";
+      } 
+      
+      
+      else {
           alert("Payment mode not supported yet!");
       }
   });
