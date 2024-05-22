@@ -27,7 +27,7 @@
 
     body{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background:url("pay.jpg");
+        background:url("images/pay.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         box-sizing: border-box;
@@ -134,11 +134,15 @@ cb=googleTranslateElementInit">
 
     <label for="cpassword"> Confirm Password </label>
     <input type="password" name="cpwd" id="cpwd" required>
-
-
     <button type="submit"> Sign Up </button>
-
     </form>
+
+    <script>
+        document.getElementById("register").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert(" Thank you for being a part of our community. You'll receive all important updates and information on your mail.");
+        });
+    </script>
 </body>
 
 
