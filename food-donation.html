@@ -29,7 +29,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url("pay.jpg");
+            background: url("images/pay.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             box-sizing: border-box;
@@ -158,6 +158,13 @@
         <button type="submit">Submit</button>
 
     </form>
+
+    <script>
+        document.getElementById("food-wastage").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert(" Thank you for your contribution! It means a lot. Our team will contact you soon. ");
+        });
+    </script>
 
     <script>
         // Form submission
