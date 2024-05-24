@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="demo.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <h1>SavourSearch : Our Zero Waste Recipe Generator</h1>
+        <form id="recipe-form">
+            <label for="ingredient">Main Ingredient:</label>
+            <input type="text" id="ingredient" name="ingredient" required>
+            
+            <label for="diet">Diet Preference (optional):</label>
+            <select id="diet" name="diet">
+                <option value="">None</option>
+                <option value="balanced">Balanced</option>
+                <option value="high-protein">High Protein</option>
+                <option value="low-fat">Low Fat</option>
+                <option value="low-carb">Low Carb</option>
+                <option value="low-sodium">Low Sodium</option>
+                <option value="high-fiber">High Fiber</option>
+                <option value="keto">Keto</option>
+                <option value="vegan">Vegan</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="paleo">Paleo</option>
+                <option value="gluten-free">Gluten Free</option>
+                <option value="dairy-free">Dairy Free</option>
+                <option value="egg-free">Egg Free</option>
+                <option value="peanut-free">Peanut Free</option>
+                <option value="tree-nut-free">Tree Nut Free</option>
+                <option value="soy-free">Soy Free</option>
+                <option value="fish-free">Fish Free</option>
+                <option value="shellfish-free">Shellfish Free</option>
+            </select>
+            
+            <label for="health">Health Preference (optional):</label>
+            <select id="health" name="health">
+                <option value="">None</option>
+                <option value="sugar-conscious">Sugar Conscious</option>
+                <option value="peanut-free">Peanut Free</option>
+                <option value="tree-nut-free">Tree Nut Free</option>
+                <option value="alcohol-free">Alcohol Free</option>
+                <option value="immuno-supportive">Immuno Supportive</option>
+                <option value="dairy-free">Dairy Free</option>
+                <option value="gluten-free">Gluten Free</option>
+                <option value="wheat-free">Wheat Free</option>
+                <option value="egg-free">Egg Free</option>
+                <option value="soy-free">Soy Free</option>
+                <option value="fish-free">Fish Free</option>
+                <option value="shellfish-free">Shellfish Free</option>
+                <option value="pork-free">Pork Free</option>
+                <option value="red-meat-free">Red Meat Free</option>
+                <option value="celery-free">Celery Free</option>
+                <option value="mustard-free">Mustard Free</option>
+                <option value="sesame-free">Sesame Free</option>
+                <option value="sulfite-free">Sulfite Free</option>
+                <option value="crustacean-free">Crustacean Free</option>
+                <option value="mollusk-free">Mollusk Free</option>
+                <option value="kosher">Kosher</option>
+                <option value="halal">Halal</option>
+            </select>
+            
+            <button type="submit"> Get Recipes </button>
+        </form>
+        
+        <div id="recipes"></div>
+    </div>
+    <script src="demo.js"></script>
+</body>
+</html>
